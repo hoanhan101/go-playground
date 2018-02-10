@@ -1,6 +1,6 @@
 # go-playground
 
-### Setup
+## Setup
 
 ### Environment variables
 There are 2 essential environment variables to setup before running any Go program:
