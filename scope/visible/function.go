@@ -1,11 +1,11 @@
 package visible
 
 import (
-    "fmt"
+	"fmt"
 )
 
 func PrintMyName() {
-    fmt.Println("Printing my name from visible package")
-    fmt.Println("MyName:", MyName)
-    fmt.Println("myName:", myName)
+	fmt.Println("Printing my name from visible package")
+	fmt.Println("MyName:", MyName)
+	fmt.Println("myName:", myName)
 }
