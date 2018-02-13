@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+    // Function expression
     helloWorld := func() {
         fmt.Println("Hello World")
     }
