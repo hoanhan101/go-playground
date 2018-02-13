@@ -14,6 +14,11 @@ func main() {
     increment := wrapper()
     fmt.Println(increment())
     fmt.Println(increment())
+
+    // Anonymous Self-Executing Function
+    func() {
+        fmt.Println("Hello World")
+    }()
 }
 
 func wrapper() func() int {
