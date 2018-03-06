@@ -1,6 +1,6 @@
 # go-playground
 
-### Setup
+## Setup
 
 ### Environment variables
 There are 2 essential environment variables to setup before running any Go program:
@@ -27,7 +27,8 @@ export PATH=$PATH:$GOBIN
 
 Execute the command `go env` to see all the environment variable.
 
-### Packages
+## Packages
+
 #### Exported/unexported, aka visible/not visible
 In go we don't say public or or private, we say exported or unexported.
 Depend on capialization:
