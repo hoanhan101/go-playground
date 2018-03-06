@@ -7,6 +7,8 @@ import (
 
 func main() {
 	http.HandleFunc("/", dog)
+
+	// Strip off the resources route, go to assert folder and serve the image
 	http.Handle("/resources/", http.StripPrefix("/resources", http.FileServer(http.Dir("./assets"))))
 	http.ListenAndServe(":8080", nil)
 }
