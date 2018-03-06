@@ -23,7 +23,7 @@ func main() {
 			continue
 		}
 
-		// Write to connection
+		// Write to connection, because conn implement Writer interface
 		io.WriteString(conn, "\nHello from TCP server\n")
 		fmt.Fprintln(conn, "How is your day?")
 		fmt.Fprintf(conn, "%v", "Well, I hope!")
