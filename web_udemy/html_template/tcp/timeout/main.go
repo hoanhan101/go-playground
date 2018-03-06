@@ -21,15 +21,15 @@ func main() {
 			log.Println(err)
 			continue
 		}
-        
-        // Use go routine to handle connection
+
+		// Use go routine to handle connection
 		go handle(conn)
 	}
 }
 
 func handle(conn net.Conn) {
-    // Set a timeoute for a connection.
-    // Otherwise it will never end because Scanner is still scanning.
+	// Set a timeoute for a connection.
+	// Otherwise it will never end because Scanner is still scanning.
 	err := conn.SetDeadline(time.Now().Add(10 * time.Second))
 	if err != nil {
 		log.Fatalln("CONN TIMEOUT")
