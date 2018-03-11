@@ -1,4 +1,6 @@
 # go-playground
+**go-playground** is a collection of Go's small programs, mostly used for
+testing, learning, and referencing.
 
 ## Setup
 
