@@ -41,11 +41,11 @@ Depend on capialization:
 Assume that our folder directory looks like this:
 ```
 package
-    main
-        main.go
-    utils
-        utilOne.go
-        utilTwo.go
+├── main
+│  └── main.go
+├── utils
+│  └── utilOne.go
+│  └── utilTwo.go
 ```
 
 If we run these commands in our executable, `main`:
