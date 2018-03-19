@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-    c_semaphore_2()
+    c_semaphore()
 }
 
 func c_unbuffered() {
