@@ -7,25 +7,25 @@ package main
 import "fmt"
 
 func main() {
-    const n = 10000
-    leftMost := make(chan int)
-    right := leftMost
-    left := leftMost
-    
-    for i := 0; i < n; i++ {
-        right = make(chan int)
-        go f(left, right)
-        left = right
-    }
+	const n = 10000
+	leftMost := make(chan int)
+	right := leftMost
+	left := leftMost
 
-    go func(c chan int) {
-        c <- 1
-    }(right)
+	for i := 0; i < n; i++ {
+		right = make(chan int)
+		go f(left, right)
+		left = right
+	}
 
-    fmt.Println(<-leftMost)
+	go func(c chan int) {
+		c <- 1
+	}(right)
+
+	fmt.Println(<-leftMost)
 
 }
 
 func f(left, right chan int) {
-    left <- 1 + <-right
+	left <- 1 + <-right
 }
