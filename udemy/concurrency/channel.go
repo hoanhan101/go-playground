@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
-    "sync"
 )
 
 func main() {
-    c_semaphore()
+	c_semaphore()
 }
 
 func c_unbuffered() {
@@ -35,89 +35,89 @@ func c_unbuffered() {
 }
 
 func c_range() {
-    c := make(chan int)
+	c := make(chan int)
 
-    go func() {
-        for i := 0; i <10; i ++ {
-            c <- i
-        }
-        close(c)
-    }()
+	go func() {
+		for i := 0; i < 10; i++ {
+			c <- i
+		}
+		close(c)
+	}()
 
-    for i := range c {
-        fmt.Println(i)
-    }
+	for i := range c {
+		fmt.Println(i)
+	}
 }
 
 func c_waitGroup() {
-    c := make(chan int)
+	c := make(chan int)
 
-    var wg sync.WaitGroup
-    wg.Add(1)
+	var wg sync.WaitGroup
+	wg.Add(1)
 
-    go func() {
-        for i := 0; i < 10; i++ {
-            c <- i
-        }
-        wg.Done()
-    }()
+	go func() {
+		for i := 0; i < 10; i++ {
+			c <- i
+		}
+		wg.Done()
+	}()
 
-    go func() {
-        wg.Wait()
-        close(c)
-    }()
+	go func() {
+		wg.Wait()
+		close(c)
+	}()
 
-    for i := range c {
-        fmt.Println(i)
-    }
+	for i := range c {
+		fmt.Println(i)
+	}
 }
 
 func c_semaphore() {
-    c := make(chan int)
-    done := make(chan bool)
+	c := make(chan int)
+	done := make(chan bool)
 
-    go func() {
-        for i := 0; i <10; i++ {
-            c <- i
-        }
-        done <- true
-    }()
+	go func() {
+		for i := 0; i < 10; i++ {
+			c <- i
+		}
+		done <- true
+	}()
 
-    // If we don't run this with goroutine, we will have a deadlock.
-    // We will never get to the range c if we don't use goroutine.
-    // If we don't get there, it is blocking so we hang there forever.
-    go func() {
-        <-done
-        close(c)
-    }()
+	// If we don't run this with goroutine, we will have a deadlock.
+	// We will never get to the range c if we don't use goroutine.
+	// If we don't get there, it is blocking so we hang there forever.
+	go func() {
+		<-done
+		close(c)
+	}()
 
-    for i := range c {
-        fmt.Println(i)
-    }
+	for i := range c {
+		fmt.Println(i)
+	}
 }
 
 func c_semaphore_2() {
-    n := 10
-    c := make(chan int)
-    done := make(chan bool)
+	n := 10
+	c := make(chan int)
+	done := make(chan bool)
 
-    for i := 0; i < n; i++ {
-        go func() {
-            for i := 0; i < n; i++ {
-                c <- i
-            }
-            done <- true
-        }()
-    }
+	for i := 0; i < n; i++ {
+		go func() {
+			for i := 0; i < n; i++ {
+				c <- i
+			}
+			done <- true
+		}()
+	}
 
-    go func() {
-        for i := 0; i < n; i++ {
-            <-done
-        }
-        close(c)
-    }()
+	go func() {
+		for i := 0; i < n; i++ {
+			<-done
+		}
+		close(c)
+	}()
 
-    for i := range c {
-        fmt.Println(i)
-    }
+	for i := range c {
+		fmt.Println(i)
+	}
 }
