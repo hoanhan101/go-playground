@@ -1,10 +1,10 @@
 # go-playground
-**go-playground** is a collection of Go's small programs, mostly used for
-testing, learning, and referencing.
 
-## Setup
+**go-playground** is a collection of Go's small programs and notes for learning
+Go.
 
-### Environment variables
+### How to setup `GOPATH`
+
 There are 2 essential environment variables to setup before running any Go program:
 - `GOPATH`
 - `GOROOT`
@@ -29,7 +29,7 @@ export PATH=$PATH:$GOBIN
 
 Execute the command `go env` to see all the environment variable.
 
-## Packages
+### How to structure project
 
 #### Exported/unexported, aka visible/not visible
 In go we don't say public or or private, we say exported or unexported.
