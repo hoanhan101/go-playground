@@ -1,5 +1,5 @@
 //
-// Go Concurrency Patterns: https://youtu.be/f6kdp27TYZs
+// Daisy-chain 
 //
 
 package main
