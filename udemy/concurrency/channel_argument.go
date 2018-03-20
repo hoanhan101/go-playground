@@ -15,6 +15,7 @@ func main() {
     }
 }
 
+// Bidirectional channel
 func incrementor() chan int {
     out := make(chan int)
     go func() {
