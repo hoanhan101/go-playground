@@ -8,8 +8,9 @@ func main() {
     c := generate(2, 3)
     out := square(c)
 
-    fmt.Println(<-out)
-    fmt.Println(<-out)
+    for i := range out {
+        fmt.Println(i)
+    }
 }
 
 func generate(nums ...int) chan int {
