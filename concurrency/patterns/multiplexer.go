@@ -1,5 +1,5 @@
 //
-// Generator: function that returns a channel
+// Multiplexing
 //
 
 package main
@@ -11,12 +11,10 @@ import (
 )
 
 func main() {
-    hoanh := boring("Hoanh")
-    an := boring("An")
+    c := fanIn(boring("Hoanh"), boring("An"))
 
-    for i := 0; i < 5; i++ {
-        fmt.Println(<-hoanh)
-        fmt.Println(<-an)
+    for i := 0; i < 10; i++ {
+        fmt.Println(<-c)
     }
 
     fmt.Println("You're boring. I am leaving!")
@@ -31,6 +29,17 @@ func boring(msg string) <-chan string {
             time.Sleep(time.Duration(rand.Intn(1e3)) * time.Millisecond)
         }
     }()
+
+    return c
+}
+
+// Let whosoever is ready to talk, instead of making them in in sequential
+// order.
+func fanIn(input1, input2 <-chan string) <-chan string {
+    c := make(chan string)
+
+    go func() { for { c <- <-input1 } }()
+    go func() { for { c <- <-input2 } }()
 
     return c
 }
