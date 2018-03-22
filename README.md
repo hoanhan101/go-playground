@@ -1,7 +1,7 @@
 # go-playground
 
-**go-playground** is a collection of Go's small programs and notes for learning
-Go.
+**go-playground** is a collection of Go's programs and notes for learning
+Go, which I mostly use for reference.
 
 ## Topic
 - Basic: scope, callback, function expression, defer, slice, pointer
