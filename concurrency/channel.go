@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	c_semaphore()
+	cSemaphore()
 }
 
-func c_unbuffered() {
+func cUnbuffered() {
 	// This is unbuffered channel
 	c := make(chan int)
 
@@ -34,7 +34,7 @@ func c_unbuffered() {
 
 }
 
-func c_range() {
+func cRange() {
 	c := make(chan int)
 
 	go func() {
@@ -49,7 +49,7 @@ func c_range() {
 	}
 }
 
-func c_waitGroup() {
+func cWaitGroup() {
 	c := make(chan int)
 
 	var wg sync.WaitGroup
@@ -72,7 +72,7 @@ func c_waitGroup() {
 	}
 }
 
-func c_semaphore() {
+func cSemaphore() {
 	c := make(chan int)
 	done := make(chan bool)
 
@@ -96,7 +96,7 @@ func c_semaphore() {
 	}
 }
 
-func c_semaphore_2() {
+func cSemaphore2() {
 	n := 10
 	c := make(chan int)
 	done := make(chan bool)

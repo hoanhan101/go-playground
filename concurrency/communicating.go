@@ -83,6 +83,7 @@ func (r *Resource) Sleep(done chan<- *Resource) {
 	done <- r
 }
 
+// Poller example
 func Poller(in <-chan *Resource, out chan<- *Resource, status chan<- State) {
 	for r := range in {
 		s := r.Poll()
