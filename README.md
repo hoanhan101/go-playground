@@ -3,11 +3,13 @@
 **go-playground** is a collection of Go's small programs and notes for learning
 Go.
 
-### Topics
-- Basics: scope, callback, function expression, defer, slice, pointer
+## Topic
+- Basic: scope, callback, function expression, defer, slice, pointer
 - Concurrency
 - Networking: http, tcp, mux, session, cookie
 - Error Handling
+
+## Note
 
 ### How to setup `GOPATH`
 
