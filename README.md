@@ -3,6 +3,12 @@
 **go-playground** is a collection of Go's small programs and notes for learning
 Go.
 
+### Topics
+- Basics: scope, callback, function expression, defer, slice, pointer
+- Concurrency
+- Networking: http, tcp, mux, session, cookie
+- Error Handling
+
 ### How to setup `GOPATH`
 
 There are 2 essential environment variables to setup before running any Go program:
