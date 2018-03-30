@@ -66,6 +66,6 @@ If we run these commands in our packages, `utils`:
 - they cannot be run because they are non-main packages
 - they cannot be built because there are no executable
 
-### Format
+### `go fmt`
 
-`go fmt ./...`: In this folder, go to every file and format it
+`go fmt ./...`: Go fmt all the files in this directory and anything below it.
