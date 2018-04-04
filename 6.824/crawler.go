@@ -15,7 +15,7 @@ import (
 //
 
 func Serial(url string, fetcher Fetcher, fetched map[string]bool) {
-    // Avoids repeats, breaks cycles
+	// Avoids repeats, breaks cycles
 	if fetched[url] {
 		return
 	}
@@ -58,7 +58,7 @@ func ConcurrentMutex(url string, fetcher Fetcher, f *fetchState) {
 
 	var done sync.WaitGroup
 
-    // Creates a thread for each page fetch
+	// Creates a thread for each page fetch
 	for _, u := range urls {
 		done.Add(1)
 		go func(u string) {
