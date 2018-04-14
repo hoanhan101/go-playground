@@ -143,7 +143,7 @@ func (kv *KV) Put(args *PutArgs, reply *PutReply) error {
 func main() {
 	server()
 
-    kv1 := PutArgs{Key: "foo", Value: "bar"}
+	kv1 := PutArgs{Key: "foo", Value: "bar"}
 	put(kv1.Key, kv1.Value)
 
 	fmt.Printf("Put(%v, %v)\n", kv1.Key, kv1.Value)

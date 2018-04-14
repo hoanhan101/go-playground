@@ -44,7 +44,7 @@ func handle(conn net.Conn) {
 	scanner := bufio.NewScanner(conn)
 	for scanner.Scan() {
 		ln := scanner.Text()
-        // Split the sentence into words and put them in a slice.
+		// Split the sentence into words and put them in a slice.
 		fs := strings.Fields(ln)
 		// logic
 		if len(fs) < 1 {

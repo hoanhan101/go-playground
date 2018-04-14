@@ -1,21 +1,21 @@
 package main
 
 import (
-    "fmt"
-    "time"
+	"fmt"
+	"time"
 )
 
 func main() {
-    start := time.Now()
-    time.Sleep(1 * time.Second)
+	start := time.Now()
+	time.Sleep(1 * time.Second)
 
-    go func() {
-        fmt.Println(time.Now().Sub(start))
-    }()
+	go func() {
+		fmt.Println(time.Now().Sub(start))
+	}()
 
-    go func() {
-        fmt.Println(time.Since(start))
-    }()
+	go func() {
+		fmt.Println(time.Since(start))
+	}()
 
-    time.Sleep(1 * time.Second)
+	time.Sleep(1 * time.Second)
 }

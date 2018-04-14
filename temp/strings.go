@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"strings"
 	"unicode"
-    "log"
 )
 
 func main() {
@@ -15,23 +15,23 @@ func main() {
 	}
 
 	f := func(c rune) bool {
-	return !unicode.IsLetter(c) && !unicode.IsNumber(c)
+		return !unicode.IsLetter(c) && !unicode.IsNumber(c)
 	}
 
-    data := strings.FieldsFunc(string(content[:]), f)
+	data := strings.FieldsFunc(string(content[:]), f)
 
-    type KeyValue struct {
-        Key string
-        Value string
-    }
+	type KeyValue struct {
+		Key   string
+		Value string
+	}
 
-    var kvs []KeyValue
+	var kvs []KeyValue
 
-    for _, value := range data {
-        kvs = append(kvs, KeyValue{value, "1"})
-    }
+	for _, value := range data {
+		kvs = append(kvs, KeyValue{value, "1"})
+	}
 
-    for _, value := range kvs {
-        fmt.Println(value)
-    }
+	for _, value := range kvs {
+		fmt.Println(value)
+	}
 }

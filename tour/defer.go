@@ -3,14 +3,14 @@ package main
 import "fmt"
 
 func main() {
-    defer world()
-    hello()
+	defer world()
+	hello()
 }
 
 func world() {
-    fmt.Println("World")
+	fmt.Println("World")
 }
 
 func hello() {
-    fmt.Println("Hello")
+	fmt.Println("Hello")
 }
