@@ -1,5 +1,7 @@
 # go-playground
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/hoanhan101/go-playground)](https://goreportcard.com/report/github.com/hoanhan101/go-playground)
+
 **go-playground** is a collection of Go's programs and notes for learning
 Go, which I mostly use for reference.
 
