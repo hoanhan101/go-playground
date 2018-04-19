@@ -48,7 +48,7 @@ type GetReply struct {
 //
 
 type Clerk struct {
-    me *rpc.Client
+	me *rpc.Client
 }
 
 func (ck *Clerk) Connect() {
@@ -57,7 +57,7 @@ func (ck *Clerk) Connect() {
 		log.Fatal("dialing:", err)
 	}
 
-    ck.me = client
+	ck.me = client
 }
 
 func (ck *Clerk) Get(key string) string {
@@ -152,8 +152,8 @@ func main() {
 
 	kv1 := PutArgs{Key: "foo", Value: "bar"}
 
-    clerk := new(Clerk)
-    clerk.Connect()
+	clerk := new(Clerk)
+	clerk.Connect()
 	clerk.Put(kv1.Key, kv1.Value)
 
 	fmt.Printf("Put(%v, %v)\n", kv1.Key, kv1.Value)
