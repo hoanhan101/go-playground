@@ -9,29 +9,35 @@ import (
 )
 
 //
-// RPC request/reply definitions
+// Common RPC message
 //
 
+// Constant
 const (
 	OK       = "OK"
 	ErrNoKey = "ErrNoKey"
 )
 
+// Err string type
 type Err string
 
+// PutArgs structure
 type PutArgs struct {
 	Key   string
 	Value string
 }
 
+// PutReply structure
 type PutReply struct {
 	Err Err
 }
 
+// GetArgs structure
 type GetArgs struct {
 	Key string
 }
 
+// GetReply structure
 type GetReply struct {
 	Err   Err
 	Value string
@@ -41,41 +47,42 @@ type GetReply struct {
 // Client
 //
 
-func connect() *rpc.Client {
+type Clerk struct {
+    me *rpc.Client
+}
+
+func (ck *Clerk) Connect() {
 	client, err := rpc.Dial("tcp", ":1234")
 	if err != nil {
 		log.Fatal("dialing:", err)
 	}
-	return client
+
+    ck.me = client
 }
 
-func get(key string) string {
-	client := connect()
-
+func (ck *Clerk) Get(key string) string {
 	args := GetArgs{key}
 	reply := GetReply{}
 
-	err := client.Call("KV.Get", &args, &reply)
+	err := ck.me.Call("KV.Get", &args, &reply)
 	if err != nil {
 		log.Fatal("error:", err)
 	}
 
-	client.Close()
+	// ck.me.Close()
 	return reply.Value
 }
 
-func put(key string, val string) {
-	client := connect()
-
+func (ck *Clerk) Put(key string, val string) {
 	args := PutArgs{key, val}
 	reply := PutReply{}
 
-	err := client.Call("KV.Put", &args, &reply)
+	err := ck.me.Call("KV.Put", &args, &reply)
 	if err != nil {
 		log.Fatal("error:", err)
 	}
 
-	client.Close()
+	// ck.me.Close()
 }
 
 //
@@ -144,8 +151,11 @@ func main() {
 	server()
 
 	kv1 := PutArgs{Key: "foo", Value: "bar"}
-	put(kv1.Key, kv1.Value)
+
+    clerk := new(Clerk)
+    clerk.Connect()
+	clerk.Put(kv1.Key, kv1.Value)
 
 	fmt.Printf("Put(%v, %v)\n", kv1.Key, kv1.Value)
-	fmt.Printf("get(%v) -> %s\n", kv1.Key, get(kv1.Key))
+	fmt.Printf("get(%v) -> %s\n", kv1.Key, clerk.Get(kv1.Key))
 }
