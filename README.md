@@ -27,7 +27,7 @@ Is set automatically setup when we install Go.
 
 Additionally, `GOBIN` is the path to where our Go binaries are installed from running `go install`.
 
-All of the environment variables configurations can be set in `.bashrc`. For example:
+All of the environment variables configurations can be set in `.bashrc` or `.zshrc`. For example:
 ```
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
