@@ -2,6 +2,11 @@
 
 Follow [Ardanlabs's Ultimate Go course](https://github.com/ardanlabs/gotraining/blob/master/topics/courses/go/README.md).
 
+
+## Ideas
+
+- [ ] Build a program to learn Go
+
 ## Design Philosophy
 
 - Does your performance better? Is it your highest priority?
@@ -26,12 +31,4 @@ Follow [Ardanlabs's Ultimate Go course](https://github.com/ardanlabs/gotraining/
 
 ## Syntax
 
-- Variables
-  - Type provides integrity and readability: 
-    - amount of memory that we allocate and what does it present?
-  - Base on computer architecture
-  - Zero value
-  - Short variable declaration
-  - `var` is the only way to initialize a variable
-  - Conversion vs casting
-    - Go doesn't have casting but conversion - memory allocation
+- [Variables](variables.go)
