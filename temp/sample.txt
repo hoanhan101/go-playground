@@ -1,3 +1,0 @@
-I know I'm a year late, but I should mention that most methods return the
-number of bytes read. For instance, binary.Read() can read into a [32]byte, but
-you don't know whether you've filled all 32 bytes or not
