@@ -30,10 +30,7 @@ Additionally, `GOBIN` is the path to where our Go binaries are installed from ru
 All of the environment variables configurations can be set in `.bashrc` or `.zshrc`. For example:
 ```
 export GOPATH=$HOME/go
-export GOBIN=$HOME/go/bin
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$GOBIN
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 ```
 
 Execute the command `go env` to see all the environment variable.
